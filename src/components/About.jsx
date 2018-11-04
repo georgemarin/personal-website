@@ -78,7 +78,7 @@ function About(props) {
       </div>
       <Typography className={classes.description}>
         I am a young, ambitious engineer, with experience as a Java Developer and Full Stack Developer, looking to work
-        on challenging projects. Lorem ipsum blah blah some text to not look so bad we shall shee.
+        on challenging projects. My goal is to deliver clean, quality code in an effective way.
       </Typography>
       <div className={classes.socialContainer}>
         <Button
