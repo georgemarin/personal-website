@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+
 import {
   Drawer,
   List,
@@ -27,6 +28,7 @@ const styles = theme => ({
     fontWeight: 'bold',
     textAlign: 'center',
     letterSpacing: '0.1rem',
+    textTransform: 'uppercase',
     color: '#c9b1a9',
     '&:hover': {
       color: 'white',
@@ -42,7 +44,7 @@ const styles = theme => ({
 class DrawerMenu extends React.Component {
 
   render() {
-    const { classes } = this.props;
+    const { classes, scrollAction, refs } = this.props;
     return (
       <Drawer
       className={classes.drawer}
@@ -51,15 +53,27 @@ class DrawerMenu extends React.Component {
       anchor="left"
       >
       <div className= {classes.toolbar} />
-      <div style={{ marginTop: '70px', marginBottom: '10px' }}>
+      <div style={{ paddingTop: '70px', paddingBottom: '10px' }}>
         <ImageAvatar />
       </div>
       <List>
-        {[ 'ABOUT', 'EXPERIENCE', 'EDUCATION', 'SKILLS', 'INTERESTS', 'CERTIFICATIONS' ].map((text) => (
-          <ListItem button key={text} className={classes.button}>
-            <ListItemText
-              primary={<Typography className={classes.listItem}>{text}</Typography>}
-            />
+        {[ 'about', 'experience', 'education', 'skills', 'interests', 'certifications', 'hobbies' ].map((text) => (
+          <ListItem
+            button
+            key={text}
+            className={classes.button}
+            onClick={() => {
+              if(text === 'about') {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth'
+                });
+              } else {
+                scrollAction(refs[ text ].current);
+              }
+          }}>
+            <ListItemText primary={<Typography className={classes.listItem}>{text}</Typography>} />
           </ListItem>
         ))}
       </List>
@@ -70,6 +84,8 @@ class DrawerMenu extends React.Component {
 
 DrawerMenu.propTypes = {
   classes: PropTypes.object.isRequired,
+  refs: PropTypes.object.isRequired,
+  scrollAction: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(DrawerMenu);

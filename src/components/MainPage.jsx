@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   CssBaseline,
-  Typography,
 } from '@material-ui/core';
 import DrawerMenu from './DrawerMenu';
-
+import About from "./About";
+import Education from "./Education";
+import Experience from "./Experience";
+import Skills from "./Skills";
+import Interests from "./Interests";
+import Certifications from "./Certifications";
+import Hobbies from "./Hobbies";
 
 const drawerWidth = 240;
 
@@ -34,50 +39,51 @@ const styles = theme => ({
 });
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.education = React.createRef();
+    this.about = React.createRef();
+    this.experience = React.createRef();
+    this.skills = React.createRef();
+    this.interests = React.createRef();
+    this.certifications = React.createRef();
+    this.hobbies = React.createRef();
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  scrollToDomRef = (element) => {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start',  });
+}
 
   render() {
     const { classes } = this.props;
-
     return (
       <div className={classes.root}>
         <CssBaseline/>
-        <DrawerMenu />
+        <DrawerMenu
+        refs={{
+          hobbies: this.hobbies,
+          about: this.about,
+          experience: this.experience,
+          education: this.education,
+          skills: this.skills,
+          interests: this.interests,
+          certifications: this.certifications,
+        }}
+        scrollAction={this.scrollToDomRef}
+        />
         <main className={classes.content}>
-          <div className={classes.toolbar}/>
-          <Typography variant="h3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-            facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-            gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-            donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-            adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-            Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-            imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-            arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </Typography>
-          <Typography variant="h3">
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-            facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-            tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-            consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-            vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-            hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-            tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-            nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-          </Typography>
-          <Typography variant="h3">
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-            facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-            tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-            consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-            vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-            hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-            tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-            nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-            accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-          </Typography>
+          <div className={classes.toolbar} />
+          <About inputRef={this.about} />
+          <Experience  inputRef={this.experience}/>
+          <Education  inputRef={this.education}/>
+          <Skills  inputRef={this.skills}/>
+          <Interests  inputRef={this.interests}/>
+          <Certifications  inputRef={this.certifications}/>
+          <Hobbies  inputRef={this.hobbies}/>
         </main>
       </div>
     );
