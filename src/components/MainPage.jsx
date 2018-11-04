@@ -5,13 +5,13 @@ import {
   CssBaseline,
 } from '@material-ui/core';
 import DrawerMenu from './DrawerMenu';
-import About from "./About";
-import Education from "./Education";
-import Experience from "./Experience";
-import Skills from "./Skills";
-import Interests from "./Interests";
-import Certifications from "./Certifications";
-import Hobbies from "./Hobbies";
+import About from './About';
+import Education from './Education';
+import Experience from './Experience';
+import Skills from './Skills';
+import Interests from './Interests';
+import Certifications from './Certifications';
+import Hobbies from './Hobbies';
 
 const drawerWidth = 240;
 
@@ -55,35 +55,35 @@ class MainPage extends React.Component {
   }
 
   scrollToDomRef = (element) => {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start',  });
-}
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <CssBaseline/>
+        <CssBaseline />
         <DrawerMenu
-        refs={{
-          hobbies: this.hobbies,
-          about: this.about,
-          experience: this.experience,
-          education: this.education,
-          skills: this.skills,
-          interests: this.interests,
-          certifications: this.certifications,
-        }}
-        scrollAction={this.scrollToDomRef}
+          refs={{
+            hobbies: this.hobbies,
+            about: this.about,
+            experience: this.experience,
+            education: this.education,
+            skills: this.skills,
+            interests: this.interests,
+            certifications: this.certifications,
+          }}
+          scrollAction={this.scrollToDomRef}
         />
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <About inputRef={this.about} />
-          <Experience  inputRef={this.experience}/>
-          <Education  inputRef={this.education}/>
-          <Skills  inputRef={this.skills}/>
-          <Interests  inputRef={this.interests}/>
-          <Certifications  inputRef={this.certifications}/>
-          <Hobbies  inputRef={this.hobbies}/>
+          <Experience inputRef={this.experience} />
+          <Education inputRef={this.education} />
+          <Skills inputRef={this.skills} />
+          <Interests inputRef={this.interests} />
+          <Certifications inputRef={this.certifications} />
+          <Hobbies inputRef={this.hobbies} />
         </main>
       </div>
     );
