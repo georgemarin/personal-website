@@ -5,15 +5,14 @@ import {
   Divider,
   Typography,
 } from '@material-ui/core';
-import ExperienceCard from './experience/ExperienceCard';
-import Anonos from '../static/Anonos.png';
-import Bitdefender from '../static/Bitdefender.png';
-import Ing from '../static/ing.GIF';
-import Opatros from '../static/optaros.png';
+import ExperienceCard from './ExperienceCard';
+import Anonos from '../../static/Anonos.png';
+import Bitdefender from '../../static/Bitdefender.png';
+import Ing from '../../static/ing.GIF';
+import Opatros from '../../static/optaros.png';
 
 const styles = {
   header: {
-    paddingTop: '3rem',
     fontSize: '3rem',
     fontFamily: 'Saira',
     letterSpacing: '-3px',
@@ -22,13 +21,14 @@ const styles = {
     lineHeight: '5.5rem',
     color: '#343a40',
     paddingBottom: '3rem',
+    marginTop: '5rem',
   },
 };
 
 function Experience(props) {
   const { classes, inputRef } = props;
   return (
-    <div ref={inputRef} style={{ marginBottom: '5rem' }}>
+    <div ref={inputRef} style={{ marginBottom: '3rem' }}>
       <Typography className={classes.header}>
         Experience
       </Typography>

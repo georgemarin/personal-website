@@ -1,7 +1,7 @@
-import { Typography } from "@material-ui/core";
-import React from "react";
+import { Typography } from '@material-ui/core';
+import React from 'react';
 
-function Certifications (props) {
+function Certifications(props) {
   return (
     <div ref={props.inputRef}>
       <Typography variant="h3">
@@ -17,7 +17,7 @@ function Certifications (props) {
         accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
       </Typography>
     </div>
-  )
+  );
 }
 
 export default Certifications;

@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 const styles = {
   top: {
     paddingLeft: '20px',
-    paddingTop: '70px',
+    paddingTop: '25vh',
   },
   title: {
     display: 'inline',
@@ -32,8 +32,10 @@ const styles = {
     fontFamily: 'Saira',
     fontSize: '1.2rem',
     color: '#868e96',
+    paddingBottom: '4rem',
   },
   description: {
+    display: 'inline',
     paddingTop: '4rem',
     fontSize: '1.2rem',
     boxSizing: 'border-box',
@@ -41,7 +43,8 @@ const styles = {
     marginBottom: '3rem',
   },
   socialContainer: {
-    marginBottom: '5rem',
+    marginBottom: '6rem',
+    marginTop: '6rem',
   },
   social: {
     '&:hover': {
@@ -53,6 +56,7 @@ const styles = {
 function About(props) {
   const { classes, inputRef } = props;
   const Marin = (<p style={{ color: '#bd5d38' }} className={classes.title}> Marin</p>);
+  const java = (<p style={{ fontWeight: 'bold', display: 'inline' }} className={classes.description}> Java </p>);
   const email = (
     <Typography
       style={
@@ -63,7 +67,7 @@ function About(props) {
         }}
       className={classes.subtitle}
     >
-      marin_george51@hotmail.com
+      dev@georgemarin.tech
     </Typography>
   );
   return (
@@ -78,7 +82,12 @@ function About(props) {
       </div>
       <Typography className={classes.description}>
         I am a young, ambitious engineer, with experience as a Java Developer and Full Stack Developer, looking to work
-        on challenging projects. My goal is to deliver clean, quality code in an effective way.
+        on challenging projects. My goal is to deliver clean, quality code in an effective way. My affinity is for
+        backend development, in particular
+      </Typography>
+      {java}
+      <Typography className={classes.description}>
+         but I enjoy writing front end code as well.
       </Typography>
       <div className={classes.socialContainer}>
         <Button

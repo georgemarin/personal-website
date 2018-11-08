@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  CssBaseline,
-} from '@material-ui/core';
-import DrawerMenu from './DrawerMenu';
-import About from './About';
-import Education from './Education';
-import Experience from './Experience';
-import Skills from './Skills';
+import DrawerMenu from './menu/DrawerMenu';
+import About from './about/About';
+import Education from './education/Education';
+import Experience from './experience/Experience';
+import Skills from '../skills/Skills';
 import Interests from './Interests';
 import Certifications from './Certifications';
 import Hobbies from './Hobbies';
@@ -30,7 +27,6 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth,
   },
-  toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
@@ -62,7 +58,6 @@ class MainPage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <CssBaseline />
         <DrawerMenu
           refs={{
             hobbies: this.hobbies,
@@ -76,7 +71,6 @@ class MainPage extends React.Component {
           scrollAction={this.scrollToDomRef}
         />
         <main className={classes.content}>
-          <div className={classes.toolbar} />
           <About inputRef={this.about} />
           <Experience inputRef={this.experience} />
           <Education inputRef={this.education} />
