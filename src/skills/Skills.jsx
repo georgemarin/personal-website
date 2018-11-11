@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
-
 import { Divider, Typography } from '@material-ui/core';
-import image from '../static/optaros.png';
-import SimpleCard from './Card';
+import BackEndCard from './BackEndCard';
+import FrontEndCard from './FrontEndCard';
+import OthersCard from './OthersCard';
+import DatabasesCard from './DatabasesCard';
 
 const styles = theme => ({
   root: {
@@ -39,13 +40,16 @@ function Skills(props) {
   const { classes, inputRef } = props;
 
   return (
-    <div  ref={inputRef}>
+    <div ref={inputRef}>
       <Typography className={classes.header}>
         Skills
       </Typography>
       <div className={classes.root}>
         <GridList className={classes.gridList}>
-          <SimpleCard />
+          <BackEndCard />
+          <FrontEndCard />
+          <DatabasesCard />
+          <OthersCard />
         </GridList>
       </div>
       <Divider light style={{ marginTop: '5rem' }} />

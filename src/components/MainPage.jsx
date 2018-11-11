@@ -8,7 +8,6 @@ import Experience from './experience/Experience';
 import Skills from '../skills/Skills';
 import Interests from './Interests';
 import Certifications from './Certifications';
-import Hobbies from './Hobbies';
 
 const drawerWidth = 240;
 
@@ -43,7 +42,6 @@ class MainPage extends React.Component {
     this.skills = React.createRef();
     this.interests = React.createRef();
     this.certifications = React.createRef();
-    this.hobbies = React.createRef();
   }
 
   componentDidMount() {
@@ -60,7 +58,6 @@ class MainPage extends React.Component {
       <div className={classes.root}>
         <DrawerMenu
           refs={{
-            hobbies: this.hobbies,
             about: this.about,
             experience: this.experience,
             education: this.education,
@@ -77,7 +74,6 @@ class MainPage extends React.Component {
           <Skills inputRef={this.skills} />
           <Interests inputRef={this.interests} />
           <Certifications inputRef={this.certifications} />
-          <Hobbies inputRef={this.hobbies} />
         </main>
       </div>
     );
