@@ -43,7 +43,7 @@ const styles = {
     marginBottom: '3rem',
   },
   socialContainer: {
-    marginBottom: '6rem',
+    marginBottom: '15vh',
     marginTop: '6rem',
   },
   social: {
@@ -67,7 +67,12 @@ function About(props) {
         }}
       className={classes.subtitle}
     >
-      dev@georgemarin.tech
+      <a
+        href="mailto:dev@georgemarin.tech"
+        style={{ color: '#bd5d38', textDecoration: 'none' }}
+      >
+        dev@georgemarin.tech
+      </a>
     </Typography>
   );
   return (
@@ -77,12 +82,15 @@ function About(props) {
         {Marin}
       </div>
       <div style={{ display: 'flex' }}>
-        <Typography className={classes.subTitle}>Bucharest, Romania · +40 729 641 715 · </Typography>
+        <Typography className={classes.subTitle}>
+          Bucharest, Romania · +40 729 641 715 ·
+        </Typography>
         {email}
       </div>
       <Typography className={classes.description}>
-        I am a young, ambitious engineer, with experience as a Java Developer and Full Stack Developer, looking to work
-        on challenging projects. My goal is to deliver clean, quality code in an effective way. My affinity is for
+        I am a young, ambitious engineer, with experience as a Java Developer and
+        Full Stack Developer, looking to work on challenging projects.
+        My goal is to deliver clean, quality code in an effective way. My affinity is for
         backend development, in particular
       </Typography>
       {java}

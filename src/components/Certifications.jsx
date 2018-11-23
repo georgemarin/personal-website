@@ -1,23 +1,66 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from '@material-ui/core';
+
+const styles = {
+  header: {
+    fontSize: '3rem',
+    fontFamily: 'Saira',
+    letterSpacing: '-3px',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    lineHeight: '5.5rem',
+    color: '#343a40',
+    paddingBottom: '3rem',
+  },
+  card: {
+    minWidth: 275,
+  },
+};
 
 function Certifications(props) {
+  const { classes, inputRef } = props;
   return (
-    <div ref={props.inputRef}>
-      <Typography variant="h3">
-        sfnsakfhsahfioahs
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-        facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-        tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-        consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-        hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-        tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-        nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-        accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+    <div ref={inputRef} style={{ paddingBottom: '35vh', paddingTop: '25vh' }}>
+      <Typography className={classes.header}>
+        Certifications
       </Typography>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            Oracle Certified Associate Java SE 8 Programmer I
+          </Typography>
+          <Typography color="textSecondary">
+            May 2017 – Present
+          </Typography>
+          <Typography color="textSecondary">
+            License 316621314
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => window.open('https://www.youracclaim.com/badges/f47c9212-a9e9-4b10-8183-81da16efadbd', '_target')}
+          >
+            See certification
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   );
 }
 
-export default Certifications;
+Certifications.propTypes = {
+  classes: PropTypes.object.isRequired,
+  inputRef: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Certifications);

@@ -40,7 +40,7 @@ function Skills(props) {
   const { classes, inputRef } = props;
 
   return (
-    <div ref={inputRef}>
+    <div ref={inputRef} style={{ marginBottom: '10vh', marginTop: '10vh' }}>
       <Typography className={classes.header}>
         Skills
       </Typography>

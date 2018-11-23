@@ -1,22 +1,52 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import { Divider, Typography } from '@material-ui/core';
+
+const styles = {
+  header: {
+    fontSize: '3rem',
+    fontFamily: 'Saira',
+    letterSpacing: '-3px',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    lineHeight: '5.5rem',
+    color: '#343a40',
+    paddingBottom: '3rem',
+  },
+  description: {
+    fontSize: '1.2rem',
+    color: '#868e96',
+    marginBottom: '3rem',
+  },
+};
 
 function Interests(props) {
+  const { classes, inputRef } = props;
   return (
-    <div ref={props.inputRef}>
-      <Typography variant="h3">
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-        facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-        tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-        consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-        hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-        tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-        nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-        accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+    <div ref={inputRef} style={{ paddingBottom: '20vh', paddingTop: '30vh' }}>
+      <Typography className={classes.header}>
+          Interests
       </Typography>
+      <Typography className={classes.description}>
+        I really enjoy being a software developer, as I am a really curios person.
+        My end goal is to become a Solution / System architect as I find this role
+        really challenging and complex.
+      </Typography>
+      {' '}
+      <Typography className={classes.description}>
+        Apart from being a software developer, I enjoy traveling. I am trying to
+        visit new countries every year and experience as much as I can the local culture.
+        Other than traveling, I also enjoy playing video games (Xbox) and boxing.
+      </Typography>
+      <Divider light />
     </div>
   );
 }
 
-export default Interests;
+Interests.propTypes = {
+  classes: PropTypes.object.isRequired,
+  inputRef: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Interests);

@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import ImageAvatar from './ImageAvatar';
 
-const drawerWidth = 270;
+const drawerWidth = '35vh';
 
 const styles = theme => ({
   drawer: {
@@ -52,11 +52,11 @@ class DrawerMenu extends React.Component {
         anchor="left"
       >
         <div className={classes.toolbar} />
-        <div style={{ paddingTop: '70px', paddingBottom: '10px' }}>
+        <div style={{ paddingTop: '10vh', paddingBottom: '10px' }}>
           <ImageAvatar />
         </div>
         <List>
-          {['about', 'experience', 'education', 'skills', 'interests', 'certifications', 'hobbies'].map(text => (
+          {['about', 'experience', 'education', 'skills', 'interests', 'certifications'].map(text => (
             <ListItem
               button
               key={text}

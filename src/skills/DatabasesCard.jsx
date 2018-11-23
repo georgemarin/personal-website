@@ -50,6 +50,33 @@ const styles = {
   },
 };
 
+const skills = [
+  {
+    alt: 'Postgre',
+    src: PostgresIcon,
+    text: 'PostgreSQL',
+    value: 50,
+  },
+  {
+    alt: 'Oracle',
+    src: OracleIcon,
+    text: 'OracleSQL',
+    value: 40,
+  },
+  {
+    alt: 'MongoDB',
+    src: MongoIcon,
+    text: 'MongoDB',
+    value: 50,
+  },
+  {
+    alt: 'Cassandra',
+    src: CassandraIcon,
+    text: 'Cassandra',
+    value: 30,
+  },
+];
+
 function DatabasesCard(props) {
   const { classes } = props;
   return (
@@ -58,50 +85,19 @@ function DatabasesCard(props) {
         <Typography className={classes.title}>
           Databases
         </Typography>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="Postgre" className={classes.icon} src={PostgresIcon} />
-            PostgreSQL
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={50}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="Oracle" className={classes.icon} src={OracleIcon} />
-          Oracle SQL
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={40}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="MongoDB" className={classes.icon} src={MongoIcon} />
-            MongoDB
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={50}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="Cassandra" className={classes.icon} src={CassandraIcon} />
-            Cassandra
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={20}
-            className={classes.progress}
-          />
-        </div>
+        {skills.map(skill => (
+          <div className={classes.skill} key={skill.alt}>
+            <Typography className={classes.pos} color="textSecondary">
+              <img alt={skill.alt} className={classes.icon} src={skill.src} />
+              {skill.text}
+            </Typography>
+            <LinearProgress
+              variant="determinate"
+              value={skill.value}
+              className={classes.progress}
+            />
+          </div>
+        ))}
       </CardContent>
     </Card>
   );

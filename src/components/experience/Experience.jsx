@@ -21,14 +21,13 @@ const styles = {
     lineHeight: '5.5rem',
     color: '#343a40',
     paddingBottom: '3rem',
-    marginTop: '5rem',
   },
 };
 
 function Experience(props) {
   const { classes, inputRef } = props;
   return (
-    <div ref={inputRef} style={{ marginBottom: '3rem' }}>
+    <div ref={inputRef} style={{ marginBottom: '10vh', marginTop: '10vh' }}>
       <Typography className={classes.header}>
         Experience
       </Typography>

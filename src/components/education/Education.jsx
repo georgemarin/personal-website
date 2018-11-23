@@ -54,7 +54,7 @@ const events = [
 function Education(props) {
   const { classes, inputRef } = props;
   return (
-    <div ref={inputRef} style={{ marginBottom: '3rem', paddingTop: '1rem' }}>
+    <div ref={inputRef} style={{ marginBottom: '10vh', marginTop: '10vh' }}>
       <Typography className={classes.header}>
         Education
       </Typography>
