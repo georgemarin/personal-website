@@ -66,6 +66,7 @@ function Education(props) {
 
 Education.propTypes = {
   inputRef: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Education);

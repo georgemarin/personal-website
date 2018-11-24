@@ -41,45 +41,45 @@ const styles = theme => ({
   },
 });
 
-class DrawerMenu extends React.Component {
-  render() {
-    const { classes, scrollAction, refs } = this.props;
-    return (
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{ paper: classes.drawerPaper }}
-        anchor="left"
-      >
-        <div className={classes.toolbar} />
-        <div style={{ paddingTop: '10vh', paddingBottom: '10px' }}>
-          <ImageAvatar />
-        </div>
-        <List>
-          {['about', 'experience', 'education', 'skills', 'interests', 'certifications'].map(text => (
-            <ListItem
-              button
-              key={text}
-              className={classes.button}
-              onClick={() => {
-                if (text === 'about') {
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: 'smooth',
-                  });
-                } else {
-                  scrollAction(refs[text].current);
-                }
-              }}
-            >
-              <ListItemText primary={<Typography className={classes.listItem}>{text}</Typography>} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    );
-  }
+function DrawerMenu(props) {
+  const { classes, scrollAction, refs } = props;
+  return (
+    <Drawer
+      className={classes.drawer}
+      variant="permanent"
+      classes={{ paper: classes.drawerPaper }}
+      anchor="left"
+    >
+      <div className={classes.toolbar} />
+      <div style={{ paddingTop: '10vh', paddingBottom: '10px' }}>
+        <ImageAvatar />
+      </div>
+      <List>
+        {['about', 'experience', 'education', 'skills', 'interests', 'certifications'].map(text => (
+          <ListItem
+            button
+            key={text}
+            className={classes.button}
+            onClick={() => {
+              if (text === 'about') {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth',
+                });
+              } else {
+                scrollAction(refs[text].current);
+              }
+            }}
+          >
+            <ListItemText
+              primary={<Typography className={classes.listItem}>{text}</Typography>}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </Drawer>
+  );
 }
 
 DrawerMenu.propTypes = {

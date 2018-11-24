@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import ExperienceCard from './ExperienceCard';
-import Anonos from '../../static/Anonos.png';
+import Anonos from '../../static/anonos.png';
 import Bitdefender from '../../static/Bitdefender.png';
 import Ing from '../../static/ing.GIF';
 import Opatros from '../../static/optaros.png';
