@@ -29,7 +29,7 @@ const styles = {
 };
 
 function OthersCard(props) {
-  const skills = ['NPM', 'Express.js', 'Kafka', 'Hadoop', 'Maven', 'Selenium', 'ESLint', 'ECMAScript',
+  const skills = ['NPM', 'Express.js', 'Kubernetes', 'Kafka', 'Hadoop', 'Maven', 'Selenium', 'ESLint', 'ECMAScript',
     'Git', 'Travis', 'Jenkins', 'Unix', 'Jest', 'Enzyme', 'Mockito', 'JUnit', 'Calypso',
     'Financial Markets', 'Back Office', 'Agile Methodologies', 'AWS'];
   const { classes } = props;
