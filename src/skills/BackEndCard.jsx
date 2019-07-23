@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  Card,
-  CardContent,
-  Typography,
-} from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import LinearProgress from '@material-ui/core/LinearProgress/LinearProgress';
+import { Responsive } from 'semantic-ui-react';
+import JavaIcon from '../static/java.png';
+import NodeIcon from '../static/nodejs.png';
 import SpringIcon from '../static/springBoot.svg';
 import DockerIcon from '../static/docker.jpg';
-import NodeIcon from '../static/nodejs.png';
-import JavaIcon from '../static/java.png';
 
 const styles = {
   card: {
@@ -26,29 +23,58 @@ const styles = {
     paddingBottom: '1em',
   },
   pos: {
-    fontSize: 16,
+    fontSize: 14,
     display: 'flex',
-    lineHeight: '40px',
-    width: '20%',
+    width: '200px',
+    marginLeft: '0.5em',
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 80,
+    height: 70,
     resizeMode: 'contain',
     paddingRight: '1em',
   },
   skill: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     paddingBottom: '1em',
   },
   progress: {
-    width: '75%',
-    verticalAlign: 'middle',
+    width: '70%',
     margin: 'auto',
   },
+  skillName: {
+    marginTop: '1.5em',
+  },
 };
+
+const skills = [
+  {
+    alt: 'java',
+    src: JavaIcon,
+    text: 'Java',
+    value: 70,
+  },
+  {
+    alt: 'nodejs',
+    src: NodeIcon,
+    text: 'NodeJs',
+    value: 50,
+  },
+  {
+    alt: 'SpringBoot',
+    src: SpringIcon,
+    text: 'Spring Boot',
+    value: 40,
+  },
+  {
+    alt: 'docker',
+    src: DockerIcon,
+    text: 'Docker',
+    value: 60,
+  },
+];
 
 function BackEndCard(props) {
   const { classes } = props;
@@ -58,50 +84,21 @@ function BackEndCard(props) {
         <Typography className={classes.title}>
           Backend
         </Typography>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="java" className={classes.icon} src={JavaIcon} />
-            Java
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={70}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="nodejs" className={classes.icon} src={NodeIcon} />
-            NodeJs
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={50}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="SpringBoot" className={classes.icon} src={SpringIcon} />
-          Spring Boot
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={40}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="docker" className={classes.icon} src={DockerIcon} />
-            Docker
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={50}
-            className={classes.progress}
-          />
-        </div>
+        {skills.map(skill => (
+          <div className={classes.skill} key={skill.alt}>
+            <div className={classes.pos} color="textSecondary">
+              <img alt={skill.alt} className={classes.icon} src={skill.src} />
+              <Typography className={classes.skillName}>{skill.text}</Typography>
+            </div>
+            <Responsive as={Fragment} minWidth={768}>
+              <LinearProgress
+                variant="determinate"
+                value={skill.value}
+                className={classes.progress}
+              />
+            </Responsive>
+          </div>
+        ))}
       </CardContent>
     </Card>
   );

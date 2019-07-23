@@ -81,7 +81,7 @@ function About(props) {
         <Typography className={classes.title}>George</Typography>
         {Marin}
       </div>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
         <Typography className={classes.subTitle}>
           Bucharest, Romania · +40 729 641 715 ·
         </Typography>

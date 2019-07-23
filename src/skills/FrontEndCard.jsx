@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  Card,
-  CardContent,
-  Typography,
-} from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import LinearProgress from '@material-ui/core/LinearProgress/LinearProgress';
+import { Responsive } from 'semantic-ui-react';
 import materialIcon from '../static/materialUi.png';
-import bootstrapIcon from '../static/bootstrap.jpeg';
 import ReactIcon from '../static/react.png';
 import CssIcon from '../static/css.png';
 import HtmlIcon from '../static/html.png';
@@ -27,29 +23,58 @@ const styles = {
     paddingBottom: '1em',
   },
   pos: {
-    fontSize: 16,
+    fontSize: 14,
     display: 'flex',
-    lineHeight: '40px',
-    width: '20%',
+    width: '200px',
+    marginLeft: '0.5em',
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 80,
+    height: 70,
     resizeMode: 'contain',
     paddingRight: '1em',
   },
   skill: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     paddingBottom: '1em',
   },
   progress: {
-    width: '75%',
-    verticalAlign: 'middle',
+    width: '70%',
     margin: 'auto',
   },
+  skillName: {
+    marginTop: '1.5em',
+  },
 };
+
+const skills = [
+  {
+    alt: 'html',
+    src: HtmlIcon,
+    text: 'HTML',
+    value: 80,
+  },
+  {
+    alt: 'react',
+    src: ReactIcon,
+    text: 'React',
+    value: 60,
+  },
+  {
+    alt: 'css',
+    src: CssIcon,
+    text: 'Css',
+    value: 40,
+  },
+  {
+    alt: 'material',
+    src: materialIcon,
+    text: 'Material UI',
+    value: 60,
+  },
+];
 
 function FrontendCard(props) {
   const { classes } = props;
@@ -59,61 +84,21 @@ function FrontendCard(props) {
         <Typography className={classes.title}>
           Frontend
         </Typography>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="html" className={classes.icon} src={HtmlIcon} />
-            HTML
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={80}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="react" className={classes.icon} src={ReactIcon} />
-          React
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={40}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="css" className={classes.icon} src={CssIcon} />
-          Css
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={30}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="material" className={classes.icon} src={materialIcon} />
-            Material UI
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={50}
-            className={classes.progress}
-          />
-        </div>
-        <div className={classes.skill}>
-          <Typography className={classes.pos} color="textSecondary">
-            <img alt="bootstrap" className={classes.icon} src={bootstrapIcon} />
-            Bootstrap
-          </Typography>
-          <LinearProgress
-            variant="determinate"
-            value={30}
-            className={classes.progress}
-          />
-        </div>
+        {skills.map(skill => (
+          <div className={classes.skill} key={skill.alt}>
+            <div className={classes.pos} color="textSecondary">
+              <img alt={skill.alt} className={classes.icon} src={skill.src} />
+              <Typography className={classes.skillName}>{skill.text}</Typography>
+            </div>
+            <Responsive as={Fragment} minWidth={768}>
+              <LinearProgress
+                variant="determinate"
+                value={skill.value}
+                className={classes.progress}
+              />
+            </Responsive>
+          </div>
+        ))}
       </CardContent>
     </Card>
   );

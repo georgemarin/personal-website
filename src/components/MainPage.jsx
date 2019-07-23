@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Responsive } from 'semantic-ui-react';
 import DrawerMenu from './menu/DrawerMenu';
 import About from './about/About';
 import Education from './education/Education';
@@ -29,7 +30,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
   },
 });
 
@@ -56,17 +57,19 @@ class MainPage extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <DrawerMenu
-          refs={{
-            about: this.about,
-            experience: this.experience,
-            education: this.education,
-            skills: this.skills,
-            interests: this.interests,
-            certifications: this.certifications,
-          }}
-          scrollAction={this.scrollToDomRef}
-        />
+        <Responsive as={Fragment} minWidth={768}>
+          <DrawerMenu
+            refs={{
+              about: this.about,
+              experience: this.experience,
+              education: this.education,
+              skills: this.skills,
+              interests: this.interests,
+              certifications: this.certifications,
+            }}
+            scrollAction={this.scrollToDomRef}
+          />
+        </Responsive>
         <main className={classes.content}>
           <About inputRef={this.about} />
           <Experience inputRef={this.experience} />

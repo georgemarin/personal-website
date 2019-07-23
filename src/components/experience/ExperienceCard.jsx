@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   Card,
   CardContent,
   CardMedia,
   Typography,
 } from '@material-ui/core';
+import { Responsive } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -70,7 +71,7 @@ function ExperienceCard(props) {
       <CardContent className={classes.content}>
         <div style={{ display: 'inline', float: 'left' }}>
           <Typography className={classes.title}>
-            { title }
+            {title}
           </Typography>
           <Typography className={classes.company}>
             {company}
@@ -82,11 +83,13 @@ function ExperienceCard(props) {
             {description}
           </Typography>
         </div>
-        <CardMedia
-          className={classes.media}
-          title="Anonos"
-          image={image}
-        />
+        <Responsive as={Fragment} minWidth={768}>
+          <CardMedia
+            className={classes.media}
+            title="Anonos"
+            image={image}
+          />
+        </Responsive>
       </CardContent>
     </Card>
   );
