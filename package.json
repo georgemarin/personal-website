@@ -36,7 +36,7 @@
     "prop-types": "latest",
     "react": "^16.8.6",
     "react-app-polyfill": "^0.1.3",
-    "react-dev-utils": "^6.1.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-icons": "latest",
     "react-material-timeline": "^3.0.1",
